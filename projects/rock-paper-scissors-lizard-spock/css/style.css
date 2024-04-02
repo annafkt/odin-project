@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  font-family: "Changa", sans-serif;
+  background-color: #222;
+  padding: 1.2rem;
+  color: #ddd;
+}
+
+main {
+  display: grid;
+  justify-items: center;
+}
+
+h1 {
+  max-width: 31.25rem;
+  font-size: clamp(1.9rem, 6vw, 3rem);
+  line-height: 1.1em;
+  text-align: center;
+  font-weight: 700;
+  color: #f4538a;
+}
+
+.rules-button {
+  margin: 2.5rem 0;
+  padding: 0.3rem 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #ddd;
+  cursor: pointer;
+  background-color: rgba(51, 51, 51, 0.6);
+  border: 0;
+  box-shadow: 0.3125rem 0.3125rem 0.25rem #000;
+  border-radius: 0.3125rem;
+  transition: color 0.2s, box-shadow 0.2s, transform 0.2s, background-color 0.2s;
+}
+.rules-button:hover {
+  color: rgba(221, 221, 221, 0.6);
+}
+.rules-button:active {
+  transform: scale(0.98);
+  box-shadow: 1px 1px 1px black;
+  background-color: rgba(51, 51, 51, 0.9);
+}
+.rules-button:focus-visible {
+  filter: drop-shadow(0px 0px 1px rgba(221, 221, 221, 0.6));
+  outline: 0;
+}
+
+.rules-container {
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ddd;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border-radius: 0.625rem;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.5s ease-in-out, z-index 0.5s ease-in-out;
+}
+.rules-container.reveal {
+  opacity: 1;
+  z-index: 10;
+}
+.rules-container .rules {
+  background-color: #222;
+  color: #ddd;
+  border-radius: 0.625rem;
+  padding: 0 1.5rem 1.5rem 3rem;
+  display: grid;
+}
+.rules-container .rules .x-mark-wrapper {
+  grid-area: 1/2/2/3;
+  place-self: center end;
+}
+.rules-container .rules .x-mark {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.rules-container .rules .x-mark svg {
+  fill: #ddd;
+  width: clamp(1.2rem, 2.5vw, 1.5rem);
+  vertical-align: middle;
+  transition: fill 0.2s;
+}
+.rules-container .rules .x-mark:hover svg {
+  fill: rgba(221, 221, 221, 0.4);
+}
+.rules-container .rules .x-mark:active {
+  transform: scale(0.95);
+}
+.rules-container h2 {
+  font-size: clamp(1.5rem, 3.1vw, 2rem);
+  font-weight: 600;
+  margin: 1.5rem 0;
+}
+.rules-container ul {
+  grid-column: span 2;
+  list-style-type: circle;
+  list-style-position: outside;
+  line-height: 1.7em;
+}
+.rules-container ul svg {
+  width: clamp(1rem, 2vw, 1.25rem);
+  height: auto;
+  fill: #faa300;
+  vertical-align: middle;
+}/*# sourceMappingURL=style.css.map */
