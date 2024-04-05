@@ -141,3 +141,103 @@ h1 {
     }
   }
 }
+
+.game-container {
+  --hand-signal-size: clamp(5rem, 14vw, 7rem);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+
+  .hand-signals {
+    width: calc(var(--hand-signal-size) * 3);
+  }
+}
+
+.hand-signals {
+  display: grid;
+  grid-template: repeat(17, 1fr) / repeat(18, 1fr);
+  grid-template-areas: 
+    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
+    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
+    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
+    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
+    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
+    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
+    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
+    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
+    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
+    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
+    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
+    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
+    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
+    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
+    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
+    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp ..";
+
+  .wrapper {
+    filter: drop-shadow(0.3125rem 0.3125rem 0.25rem #000);
+    transition: filter 0.1s;
+
+    &:has(button:active) {
+      filter: drop-shadow(1px 1px 1px #000);
+    }
+
+    &:has(button:focus-visible) {
+      filter: drop-shadow(0 0 1px rgba($white, 60%));
+    }
+
+    button {
+      clip-path: 
+          polygon(
+              29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 
+              70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
+      width: var(--hand-signal-size);
+      height: var(--hand-signal-size);
+      padding: 1.5rem;
+      background-color: rgba($grey, 60%);
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.1s, background-color 0.1s;
+
+      &:hover svg {
+        fill: $light-yellow;
+      }
+
+      &:active {
+        background-color: rgba($grey, 80%);
+        transform: scale(.95);
+      }
+    }
+
+    &.rock {
+      grid-area: ro;
+      grid-row-end: 7;
+    }
+
+    &.paper {
+      grid-area: pa;
+      grid-row-end: 7;
+    }
+
+    &.scissors {
+      grid-area: sc;
+    }
+
+    &.lizard {
+      grid-area: li;
+      grid-row-start: 11;
+    }
+
+    &.spock {
+      grid-area: sp;
+      grid-row-start: 11;
+    }
+  }
+
+  svg {
+    fill: $yellow;
+    display: block;
+  }
+}
