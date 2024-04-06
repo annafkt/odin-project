@@ -44,11 +44,11 @@ h1 {
   letter-spacing: 0.1em;
   color: $white;
   cursor: pointer;
-  background-color: rgba($grey, 60%);
+  background-color: rgba($grey, 80%);
   border: 0;
   box-shadow: 0.3125rem 0.3125rem 0.25rem #000;
   border-radius: 0.3125rem;
-  transition: color 0.2s, box-shadow 0.2s, transform 0.2s, background-color 0.2s;
+  transition: color 0.2s, box-shadow 0.1s, transform 0.1s, background-color 0.2s;
 
   &:hover {
     color: rgba($white, 60%);
@@ -57,7 +57,7 @@ h1 {
   &:active {
     transform: scale(0.98);
     box-shadow: 1px 1px 1px black;
-    background-color: rgba($grey, 90%);
+    background-color: $grey;
   }
 
   &:focus-visible {
@@ -157,24 +157,7 @@ h1 {
 
 .hand-signals {
   display: grid;
-  grid-template: repeat(17, 1fr) / repeat(18, 1fr);
-  grid-template-areas: 
-    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
-    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
-    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
-    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
-    ".. ro ro ro ro ro ro .. .. .. .. pa pa pa pa pa pa .."
-    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
-    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
-    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
-    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
-    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
-    ".. .. .. .. .. .. sc sc sc sc sc sc .. .. .. .. .. .."
-    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
-    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
-    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
-    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp .."
-    ".. li li li li li li .. .. .. .. sp sp sp sp sp sp ..";
+  grid-template: repeat(16, 1fr) / repeat(18, 1fr);
 
   .wrapper {
     filter: drop-shadow(0.3125rem 0.3125rem 0.25rem #000);
@@ -189,50 +172,44 @@ h1 {
     }
 
     button {
-      clip-path: 
-          polygon(
-              29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 
-              70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
+      clip-path: polygon(29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 
+                         70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
       width: var(--hand-signal-size);
       height: var(--hand-signal-size);
       padding: 1.5rem;
-      background-color: rgba($grey, 60%);
+      background-color: rgba($grey, 80%);
       border: 0;
       cursor: pointer;
-      transition: transform 0.1s, background-color 0.1s;
+      transition: transform 0.1s, background-color 0.3s;
 
       &:hover svg {
         fill: $light-yellow;
       }
 
       &:active {
-        background-color: rgba($grey, 80%);
+        background-color: rgba($grey, 90%);
         transform: scale(.95);
       }
     }
 
     &.rock {
-      grid-area: ro;
-      grid-row-end: 7;
+      grid-area: 1 / 2 / 7 / 8;
     }
 
     &.paper {
-      grid-area: pa;
-      grid-row-end: 7;
+      grid-area: 1 / 12 / 7 / 18;
     }
 
     &.scissors {
-      grid-area: sc;
+      grid-area: 6 / 7 / 12 / 13;
     }
 
     &.lizard {
-      grid-area: li;
-      grid-row-start: 11;
+      grid-area: 11 / 2 / 17 / 8;
     }
 
     &.spock {
-      grid-area: sp;
-      grid-row-start: 11;
+      grid-area: 11 / 12 / 17 / 18;
     }
   }
 
