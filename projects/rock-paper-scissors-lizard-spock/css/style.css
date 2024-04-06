@@ -128,7 +128,8 @@ h1 {
   gap: 1.5rem;
   justify-content: center;
 }
-.game-container .hand-signals {
+.game-container .hand-signals,
+.game-container .score {
   width: calc(var(--hand-signal-size) * 3);
 }
 
@@ -182,4 +183,29 @@ h1 {
 .hand-signals svg {
   fill: #f5dd61;
   display: block;
+}
+
+.score {
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  display: grid;
+  align-content: space-evenly;
+  row-gap: 1rem;
+}
+@media (max-width: 33.875rem) {
+  .score {
+    text-align: center;
+    justify-content: center;
+  }
+  .score .user {
+    margin-top: 1rem;
+  }
+  .score h3 {
+    padding: 0 0.3rem 0.3rem;
+  }
+}
+.score h3 {
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=style.css.map */

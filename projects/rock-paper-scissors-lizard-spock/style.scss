@@ -9,6 +9,8 @@ $yellow: #f5dd61;
 $light-yellow: #f9ea9f;
 $white: #ddd;
 
+$mobile: 33.875rem;
+
 * { box-sizing: border-box;}
 
 body {
@@ -150,7 +152,8 @@ h1 {
   gap: 1.5rem;
   justify-content: center;
 
-  .hand-signals {
+  .hand-signals,
+  .score {
     width: calc(var(--hand-signal-size) * 3);
   }
 }
@@ -216,5 +219,32 @@ h1 {
   svg {
     fill: $yellow;
     display: block;
+  }
+}
+
+.score {
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  display: grid;
+  align-content: space-evenly;
+  row-gap: 1rem;
+
+  @media (max-width: $mobile) {
+    text-align: center;
+    justify-content: center;
+
+    .user {
+      margin-top: 1rem;
+    }
+
+    h3 {
+      padding: 0 0.3rem 0.3rem;
+    }
+  }
+
+  h3 {
+    font-weight: 600;
+    border-bottom: 2px solid $white;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
   }
 }
