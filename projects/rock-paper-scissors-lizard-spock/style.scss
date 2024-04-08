@@ -68,82 +68,6 @@ h1 {
   }
 }
 
-.rules-container {
-  width: 100%;
-  min-height: 100vh;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  background-color: rgba(#000, 80%);
-  color: $white;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  border-radius: 0.625rem;
-  display: grid;
-  place-items: center;
-  transition: opacity 0.5s ease-in-out, z-index 0.5s ease-in-out;
-
-  &.reveal {
-    opacity: 1;
-    z-index: 10;
-  }
-
-  .rules {
-    background-color: $black;
-    color: $white;
-    border-radius: 0.625rem;
-    padding: 0 1.5rem 1.5rem 3rem;
-    display: grid;
-
-    .x-mark-wrapper {
-      grid-area: 1 / 2 / 2 / 3;
-      place-self: center end;
-    }
-
-    .x-mark {
-      background-color: transparent;
-      border: 0;
-      padding: 0;
-      cursor: pointer;
-
-      svg {
-        fill: $white;
-        width: clamp(1.2rem, 2.5vw, 1.5rem);
-        vertical-align: middle;
-        transition: fill 0.2s;
-      }
-
-      &:hover svg {
-        fill: rgba($white, 40%);
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
-    }
-  }
-
-  h2 {
-    font-size: clamp(1.5rem, 3.1vw, 2rem);
-    font-weight: 600;
-    margin: 1.5rem 0;
-  }
-
-  ul {
-    grid-column: span 2;
-    list-style-type: circle;
-    list-style-position: outside;
-    line-height: 1.7em;
-
-    svg {
-      width: clamp(1rem, 2vw, 1.25rem);
-      height: auto;
-      fill: $orange;
-      vertical-align: middle;
-    }
-  }
-}
-
 .game-container {
   --hand-signal-size: clamp(5rem, 14vw, 7rem);
 
@@ -246,5 +170,84 @@ h1 {
     border-bottom: 2px solid $white;
     padding-bottom: 0.3rem;
     margin-bottom: 1rem;
+  }
+}
+
+/* POP-UPS */
+
+.pop-up {
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background-color: rgba(#000, 80%);
+  color: $white;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.5s ease-in-out, z-index 0.5s ease-in-out;
+
+  &.reveal {
+    opacity: 1;
+    z-index: 10;
+  }
+}
+
+.rules {
+  background-color: $black;
+  border-radius: 0.625rem;
+  padding: 0 1.5rem 1.5rem 3rem;
+  display: grid;
+
+  .x-mark-wrapper {
+    grid-area: 1 / 2 / 2 / 3;
+    place-self: center end;
+  }
+
+  .x-mark {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+
+    svg {
+      fill: $white;
+      width: clamp(1.2rem, 2.5vw, 1.5rem);
+      vertical-align: middle; // ????
+      transition: fill 0.2s;
+    }
+
+    &:hover svg {
+      fill: rgba($white, 40%);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.rules {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  
+  h2 {
+    font-size: clamp(1.5rem, 3.1vw, 2rem);
+    font-weight: 600;
+    margin: 1.5rem 0;
+  }
+  
+  ul {
+    grid-column: span 2;
+    list-style-type: circle;
+    list-style-position: outside;
+    line-height: 1.7em;
+  
+    svg {
+      width: clamp(1rem, 2vw, 1.25rem);
+      height: auto;
+      fill: $orange;
+      vertical-align: middle;
+    }
   }
 }
