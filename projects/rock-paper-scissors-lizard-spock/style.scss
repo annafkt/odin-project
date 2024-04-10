@@ -197,15 +197,13 @@ h1 {
   }
 }
 
-.rules {
+.pop-up-card {
   background-color: $black;
   border-radius: 0.625rem;
-  padding: 0 1.5rem 1.5rem 3rem;
   display: grid;
 
   .x-mark-wrapper {
     grid-area: 1 / 2 / 2 / 3;
-    place-self: center end;
   }
 
   .x-mark {
@@ -217,7 +215,7 @@ h1 {
     svg {
       fill: $white;
       width: clamp(1.2rem, 2.5vw, 1.5rem);
-      vertical-align: middle; // ????
+      vertical-align: middle;
       transition: fill 0.2s;
     }
 
@@ -232,8 +230,12 @@ h1 {
 }
 
 .rules {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  
+  padding: 0 1.5rem 1.5rem 3rem;
+
+  .x-mark-wrapper {
+    place-self: center end;
+  }
+
   h2 {
     font-size: clamp(1.5rem, 3.1vw, 2rem);
     font-weight: 600;
@@ -242,6 +244,7 @@ h1 {
   
   ul {
     grid-column: span 2;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     list-style-type: circle;
     list-style-position: outside;
     line-height: 1.7em;
@@ -251,6 +254,31 @@ h1 {
       height: auto;
       fill: $orange;
       vertical-align: middle;
+    }
+  }
+}
+
+.final-result-container {
+  --margin: min(3rem, 10vw);
+
+  font-size: clamp(2rem, 5vw, 3rem);
+
+  .final-result {
+    grid-template-rows: var(--margin) auto;
+    grid-template-columns: auto calc(var(--margin) * 2);
+    padding: 0.7rem;
+
+    .x-mark-wrapper {
+      display: grid;
+      place-self: start end;
+    }
+
+    p {
+      margin: 0.5rem 0.5rem var(--margin) calc(var(--margin) * 2);
+      grid-area: 2 / 1 / 3 / 2;
+      text-align: center;
+      line-height: 1.1em;
+      color: $orange;
     }
   }
 }
