@@ -90,36 +90,11 @@ h1 {
   grid-template: repeat(16, 1fr) / repeat(18, 1fr);
 
   .wrapper {
+    display: grid;
     filter: drop-shadow(0.3125rem 0.3125rem 0.25rem #000);
-    transition: filter 0.1s;
-
-    &:has(button:active) {
-      filter: drop-shadow(1px 1px 1px #000);
-    }
 
     &:has(button:focus-visible) {
       filter: drop-shadow(0 0 1px rgba($white, 60%));
-    }
-
-    button {
-      clip-path: polygon(29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 
-                         70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
-      width: var(--hand-signal-size);
-      height: var(--hand-signal-size);
-      padding: 1.5rem;
-      background-color: rgba($grey, 80%);
-      border: 0;
-      cursor: pointer;
-      transition: transform 0.1s, background-color 0.3s;
-
-      &:hover svg {
-        fill: $light-yellow;
-      }
-
-      &:active {
-        background-color: rgba($grey, 90%);
-        transform: scale(.95);
-      }
     }
 
     &.rock {
@@ -141,11 +116,33 @@ h1 {
     &.spock {
       grid-area: 11 / 12 / 17 / 18;
     }
-  }
 
-  svg {
-    fill: $yellow;
-    display: block;
+    button,
+    svg,
+    .animated-div {
+      clip-path: polygon(29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 
+                         70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
+      width: var(--hand-signal-size);
+      height: var(--hand-signal-size);
+      padding: 1.5rem;
+      border: 0;
+      cursor: pointer;
+      grid-area: 1 / 2;
+    }
+
+    button {
+      background-color: rgba($grey, 80%);
+    }
+
+    svg {
+      z-index: 10;
+      fill: $yellow;
+      display: block;
+
+      &:hover {
+        fill: $light-yellow;
+      }
+    }
   }
 }
 

@@ -11,6 +11,33 @@ const RULES = {
 
 };
 
+/*
+Animation
+*********/
+
+const handSignalBackground = (color) => [
+  { background: 'rgba(51, 51, 51, .8)',
+    opacity: 0 },
+  { background: color, 
+    opacity: 1 },
+  { background: 'rgba(51, 51, 51, .8)',
+    opacity: 0 },
+];
+
+const handSignalTransform = [
+  { transform: 'scale(1)' },
+  { transform: 'scale(.95)' },
+  { transform: 'scale(1)' },
+];
+
+const handSignalShadow = [
+  { filter: 'drop-shadow(0.3125rem 0.3125rem 0.25rem #000)' },
+  { filter: 'drop-shadow(1px 1px 1px #000)' },
+  { filter: 'drop-shadow(0.3125rem 0.3125rem 0.25rem #000)' },
+];
+
+/*****************/
+
 const popUps = document.querySelectorAll('.pop-up');
 const xMarks = document.querySelectorAll('.x-mark-wrapper');
 
@@ -50,6 +77,7 @@ handSignals.forEach(signal => {
     const playerChoice = e.currentTarget.firstElementChild.id;
     const computerChoice = getComputerChoice();
 
+    addAnimation(playerChoice, computerChoice);
     addPoints(playerChoice, computerChoice);
   });
 });
@@ -58,6 +86,40 @@ function getComputerChoice() {
   const options = Object.keys(RULES);
 
   return options[Math.floor(Math.random() * options.length)];
+}
+
+function addAnimation(playerChoice, computerChoice) {
+  const playerChoiceButton = document.querySelector(`.wrapper.${playerChoice} .animated-div`);
+  const playerChoiceButtonWrapper = document.querySelector(`.wrapper.${playerChoice}`);
+  const computerChoiceButton = document.querySelector(`.wrapper.${computerChoice} .animated-div`);
+  const computerChoiceButtonWrapper = document.querySelector(`.wrapper.${computerChoice}`);
+
+  if (playerChoice == computerChoice) {
+    playerChoiceButton.animate(
+      handSignalBackground('linear-gradient(135deg, #00ffdd 48%, #2fa4ff 52%)'), 1000
+    );
+  } else {
+    playerChoiceButton.animate(
+      handSignalBackground('#00ffdd'), 1000
+    );
+    computerChoiceButton.animate(
+      handSignalBackground('#2fa4ff'), 1000
+    );
+  }
+
+  playerChoiceButtonWrapper.animate(
+    handSignalShadow, 600
+  )
+  computerChoiceButtonWrapper.animate(
+    handSignalShadow, 600
+  )
+
+  playerChoiceButton.animate(
+    handSignalTransform, 600,
+  )
+  computerChoiceButton.animate(
+    handSignalTransform, 600
+  );
 }
 
 function addPoints(playerChoice, computerChoice) {

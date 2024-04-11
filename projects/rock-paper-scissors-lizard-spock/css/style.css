@@ -75,32 +75,11 @@ h1 {
   grid-template: repeat(16, 1fr)/repeat(18, 1fr);
 }
 .hand-signals .wrapper {
+  display: grid;
   filter: drop-shadow(0.3125rem 0.3125rem 0.25rem #000);
-  transition: filter 0.1s;
-}
-.hand-signals .wrapper:has(button:active) {
-  filter: drop-shadow(1px 1px 1px #000);
 }
 .hand-signals .wrapper:has(button:focus-visible) {
   filter: drop-shadow(0 0 1px rgba(221, 221, 221, 0.6));
-}
-.hand-signals .wrapper button {
-  -webkit-clip-path: polygon(29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
-          clip-path: polygon(29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
-  width: var(--hand-signal-size);
-  height: var(--hand-signal-size);
-  padding: 1.5rem;
-  background-color: rgba(51, 51, 51, 0.8);
-  border: 0;
-  cursor: pointer;
-  transition: transform 0.1s, background-color 0.3s;
-}
-.hand-signals .wrapper button:hover svg {
-  fill: #f9ea9f;
-}
-.hand-signals .wrapper button:active {
-  background-color: rgba(51, 51, 51, 0.9);
-  transform: scale(0.95);
 }
 .hand-signals .wrapper.rock {
   grid-area: 1/2/7/8;
@@ -117,9 +96,28 @@ h1 {
 .hand-signals .wrapper.spock {
   grid-area: 11/12/17/18;
 }
-.hand-signals svg {
+.hand-signals .wrapper button,
+.hand-signals .wrapper svg,
+.hand-signals .wrapper .animated-div {
+  -webkit-clip-path: polygon(29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
+          clip-path: polygon(29.29% 0, 70.71% 0, 100% 29.29%, 100% 70.71%, 70.71% 100%, 29.29% 100%, 0 70.71%, 0 29.29%);
+  width: var(--hand-signal-size);
+  height: var(--hand-signal-size);
+  padding: 1.5rem;
+  border: 0;
+  cursor: pointer;
+  grid-area: 1/2;
+}
+.hand-signals .wrapper button {
+  background-color: rgba(51, 51, 51, 0.8);
+}
+.hand-signals .wrapper svg {
+  z-index: 10;
   fill: #f5dd61;
   display: block;
+}
+.hand-signals .wrapper svg:hover {
+  fill: #f9ea9f;
 }
 
 .score {
