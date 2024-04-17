@@ -49,4 +49,39 @@ function addRandomValues(e) {
   addColors(sphere);
 }
 
+reset.addEventListener('click', () => {
+  const spheres = document.querySelectorAll('.container > div > div');
+  spheres.forEach(sphere => {
+    sphere.style.width = 0;
+    sphere.style.height = 0;
+  });
+});
+
+sizeSelection.addEventListener('click', () => {
+  const size = (size) => {
+    const parents = document.querySelectorAll('.container > div');
+    parents.forEach(parent => {
+      parent.style.width = size;
+      parent.style.height = size;
+    });
+  }
+    
+  switch(sizeSelection.selectedIndex) {
+    case 1: // bigger
+      createSpheres(10);
+      size('10%');
+      break;
+
+    case 2: // smaller
+      createSpheres(30);
+      size(`${100 / 30}%`);
+      break;
+
+    case 3: // default
+      createSpheres(20);
+      size('5%');
+      break;
+  }
+});
+
 createSpheres(20);
