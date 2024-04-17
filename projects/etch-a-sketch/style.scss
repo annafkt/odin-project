@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  overflow: hidden;
+  background-color: #111;
+  display: grid;
+}
+
+.container {
+  width: 100vmax;
+  height: 100vmax;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container > div {
+  width: 5%;
+  height: 5%;
+  display: grid;
+}
+
+.container > div > div {
+  border-radius: 50%;
+}
+
+.reset {
+  position: fixed;
+  bottom: 5vh;
+  right: 2vw;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+select {
+  position: fixed;
+  top: 5vh;
+  left: 2vw;
+}
+
+.reset,
+select {
+  background-color: #f5deb3;
+  font-family: Alice, serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 0.7rem;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #edc478;
+  }
+}
