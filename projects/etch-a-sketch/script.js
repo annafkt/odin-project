@@ -1,5 +1,7 @@
+const outerContainer = document.querySelector('.outer-container');
 const reset = document.querySelector('.reset');
 const sizeSelection = document.querySelector('select');
+
 const sphereSizes = ['15%', '40%', '60%', '85%'];
 const spherePositions = ['start', 'center', 'end'];
 const sphereColors = ['#ff407d', '#8576ff', '#c5ff95', '#ff71cd', '#fff80a', '#fe7a36'];
@@ -24,9 +26,19 @@ const addColors = (sphere) => {
 const getRandomValue = (array) =>
   array[Math.floor(Math.random() * array.length)];
 
-function createSpheres(spheresOnOneSide) {
+function createContainer(spheresOnOneSide) {
+  const container = document.createElement('div');
+
+  container.classList.add('container');
+  outerContainer.appendChild(container);
+
+  createSpheres(container, spheresOnOneSide);
+
+  return container;
+}
+
+function createSpheres(container, spheresOnOneSide) {
   for (let i = 1; i <= spheresOnOneSide * spheresOnOneSide; i++) {
-    const container = document.querySelector('.container');
     const parent = document.createElement('div');
     const sphere = document.createElement('div');
 
@@ -65,23 +77,25 @@ sizeSelection.addEventListener('click', () => {
       parent.style.height = size;
     });
   }
+
+  const container = document.querySelector('.container');
     
   switch(sizeSelection.selectedIndex) {
     case 1: // bigger
-      createSpheres(10);
+      container.replaceWith(createContainer(10));
       size('10%');
       break;
 
     case 2: // smaller
-      createSpheres(30);
+      container.replaceWith(createContainer(30));
       size(`${100 / 30}%`);
       break;
 
     case 3: // default
-      createSpheres(20);
+      container.replaceWith(createContainer(20));
       size('5%');
       break;
   }
 });
 
-createSpheres(20);
+createContainer(20);
