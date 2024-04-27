@@ -69,7 +69,7 @@ reset.addEventListener('click', () => {
   });
 });
 
-sizeSelection.addEventListener('click', () => {
+sizeSelection.addEventListener('change', () => {
   const size = (size) => {
     const parents = document.querySelectorAll('.container > div');
     parents.forEach(parent => {
