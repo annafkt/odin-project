@@ -6,25 +6,25 @@ const sphereSizes = ['15%', '40%', '60%', '85%'];
 const spherePositions = ['start', 'center', 'end'];
 const sphereColors = ['#ff407d', '#8576ff', '#c5ff95', '#ff71cd', '#fff80a', '#fe7a36'];
 
-const addSize = (sphere) => {
-    const size = getRandomValue(sphereSizes);
-
-    sphere.style.width = size;
-    sphere.style.height = size;
+function addSize(sphere) {
+  const size = getRandomValue(sphereSizes);
+  sphere.style.width = size;
+  sphere.style.height = size;
 }
 
-const addPosition = (sphere) => {
+function addPosition(sphere) {
   sphere.style.alignSelf = getRandomValue(spherePositions);
   sphere.style.justifySelf = getRandomValue(spherePositions);
 }
 
-const addColors = (sphere) => {
+function addColors(sphere) {
   sphere.style.backgroundImage = 
     `radial-gradient(circle at 70% 30%, ${getRandomValue(sphereColors)}, #111)`;
 }
 
-const getRandomValue = (array) =>
-  array[Math.floor(Math.random() * array.length)];
+function getRandomValue(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
 
 function createContainer(spheresOnOneSide) {
   const container = document.createElement('div');
